@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateRegistroUsuarioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateRegistroUsuarioLabel_idUsuario}" for="idUsuario" />
+                    <h:inputText id="idUsuario" value="#{registroUsuarioController.selected.idUsuario}" title="#{bundle.CreateRegistroUsuarioTitle_idUsuario}" required="true" requiredMessage="#{bundle.CreateRegistroUsuarioRequiredMessage_idUsuario}"/>
+                    <h:outputLabel value="#{bundle.CreateRegistroUsuarioLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{registroUsuarioController.selected.nombre}" title="#{bundle.CreateRegistroUsuarioTitle_nombre}" />
+                    <h:outputLabel value="#{bundle.CreateRegistroUsuarioLabel_apellido}" for="apellido" />
+                    <h:inputText id="apellido" value="#{registroUsuarioController.selected.apellido}" title="#{bundle.CreateRegistroUsuarioTitle_apellido}" />
+                    <h:outputLabel value="#{bundle.CreateRegistroUsuarioLabel_edad}" for="edad" />
+                    <h:inputText id="edad" value="#{registroUsuarioController.selected.edad}" title="#{bundle.CreateRegistroUsuarioTitle_edad}" />
+                    <h:outputLabel value="#{bundle.CreateRegistroUsuarioLabel_correoElectronico}" for="correoElectronico" />
+                    <h:inputText id="correoElectronico" value="#{registroUsuarioController.selected.correoElectronico}" title="#{bundle.CreateRegistroUsuarioTitle_correoElectronico}" />
+                    <h:outputLabel value="#{bundle.CreateRegistroUsuarioLabel_rfc}" for="rfc" />
+                    <h:inputText id="rfc" value="#{registroUsuarioController.selected.rfc}" title="#{bundle.CreateRegistroUsuarioTitle_rfc}" />
+                    <h:outputLabel value="#{bundle.CreateRegistroUsuarioLabel_fechanacimiento}" for="fechanacimiento" />
+                    <h:inputText id="fechanacimiento" value="#{registroUsuarioController.selected.fechanacimiento}" title="#{bundle.CreateRegistroUsuarioTitle_fechanacimiento}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateRegistroUsuarioLabel_telefono}" for="telefono" />
+                    <h:inputText id="telefono" value="#{registroUsuarioController.selected.telefono}" title="#{bundle.CreateRegistroUsuarioTitle_telefono}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{registroUsuarioController.create}" value="#{bundle.CreateRegistroUsuarioSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{registroUsuarioController.prepareList}" value="#{bundle.CreateRegistroUsuarioShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateRegistroUsuarioIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

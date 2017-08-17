@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewRegistroUsuarioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewRegistroUsuarioLabel_idUsuario}"/>
+                    <h:outputText value="#{registroUsuarioController.selected.idUsuario}" title="#{bundle.ViewRegistroUsuarioTitle_idUsuario}"/>
+                    <h:outputText value="#{bundle.ViewRegistroUsuarioLabel_nombre}"/>
+                    <h:outputText value="#{registroUsuarioController.selected.nombre}" title="#{bundle.ViewRegistroUsuarioTitle_nombre}"/>
+                    <h:outputText value="#{bundle.ViewRegistroUsuarioLabel_apellido}"/>
+                    <h:outputText value="#{registroUsuarioController.selected.apellido}" title="#{bundle.ViewRegistroUsuarioTitle_apellido}"/>
+                    <h:outputText value="#{bundle.ViewRegistroUsuarioLabel_edad}"/>
+                    <h:outputText value="#{registroUsuarioController.selected.edad}" title="#{bundle.ViewRegistroUsuarioTitle_edad}"/>
+                    <h:outputText value="#{bundle.ViewRegistroUsuarioLabel_correoElectronico}"/>
+                    <h:outputText value="#{registroUsuarioController.selected.correoElectronico}" title="#{bundle.ViewRegistroUsuarioTitle_correoElectronico}"/>
+                    <h:outputText value="#{bundle.ViewRegistroUsuarioLabel_rfc}"/>
+                    <h:outputText value="#{registroUsuarioController.selected.rfc}" title="#{bundle.ViewRegistroUsuarioTitle_rfc}"/>
+                    <h:outputText value="#{bundle.ViewRegistroUsuarioLabel_fechanacimiento}"/>
+                    <h:outputText value="#{registroUsuarioController.selected.fechanacimiento}" title="#{bundle.ViewRegistroUsuarioTitle_fechanacimiento}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewRegistroUsuarioLabel_telefono}"/>
+                    <h:outputText value="#{registroUsuarioController.selected.telefono}" title="#{bundle.ViewRegistroUsuarioTitle_telefono}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{registroUsuarioController.destroyAndView}" value="#{bundle.ViewRegistroUsuarioDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewRegistroUsuarioEditLink}"/>
+                <br />
+                <h:commandLink action="#{registroUsuarioController.prepareCreate}" value="#{bundle.ViewRegistroUsuarioCreateLink}" />
+                <br />
+                <h:commandLink action="#{registroUsuarioController.prepareList}" value="#{bundle.ViewRegistroUsuarioShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewRegistroUsuarioIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
